@@ -140,7 +140,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.picoxr": {
-      "version": "file:C:/Users/trava/OneDrive/Bureau/VR/TP3/TP3-Pico/PICO SDK",
+      "version": "file:../PICO SDK",
       "depth": 0,
       "source": "local",
       "dependencies": {
