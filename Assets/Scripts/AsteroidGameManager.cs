@@ -22,7 +22,16 @@ public class AsteroidGameManager : MonoBehaviour
         asteroidCounter = 0;
         ReinitCounter();
         gameIsActive = true;
-}
+    }
+
+    public void AsteroidDestroyed()
+    {
+        asteroidCounter++;
+        if(asteroidCounter >= NbAsteroidToDestroy)
+        {
+            Stop();
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -41,9 +50,9 @@ public class AsteroidGameManager : MonoBehaviour
         }        
     }
 
-    void Stop()
+    public void Stop()
     {
-
+        this.gameObject.SetActive(false);
     }
 
     private void ReinitCounter()
