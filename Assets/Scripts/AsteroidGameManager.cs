@@ -56,16 +56,13 @@ public class AsteroidGameManager : MonoBehaviour
     {
         var obj = Instantiate(Asteroid);
         // TODO paramétrer l'angle min et max ??
-        float randX = Random.Range(-0.25f, 0.25f);
-        float randY = Random.Range(-0.25f, 0.25f);
+        float randX = Random.Range(-0.15f, 0.15f);
+        float randY = Random.Range(-0.15f, 0.15f);
         Vector3 vec = new Vector3(randX ,
             randY ,
             AsteroidSpawner.transform.forward.z);
 
         obj.transform.position = AsteroidSpawner.transform.position;
-        obj.GetComponent<Rigidbody>().AddForce(5000 * vec, ForceMode.Impulse);
-
-        //obj.transform.position = transform.position + 2 * AsteroidSpawner.transform.forward;
-        //obj.GetComponent<Rigidbody>().AddForce(5000 * AsteroidSpawner.transform.forward, ForceMode.Impulse);
+        obj.GetComponent<Rigidbody>().AddForce(5500 * vec, ForceMode.Impulse);
     }
 }

@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class AsteroidInteraction : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public void Destroy()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.gameObject.SetActive(false);
     }
 }
