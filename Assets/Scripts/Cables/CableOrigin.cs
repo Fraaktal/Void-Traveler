@@ -22,6 +22,8 @@ namespace Cables
         private GameObject Line;
         private bool ShowLine;
         private bool IsDone;
+        
+        private Vector3 initPositionController;
 
         // Start is called before the first frame update
         void Start()
@@ -35,15 +37,27 @@ namespace Cables
             
             if (ShowLine && !IsDone)
             {
-                DrawLine(transform.position, HandController.transform.forward);
+                var endpos = CalculateRopeEndPosition(transform.position, initPositionController, HandController.transform.forward);
+                DrawLine(transform.position, endpos);
             }
         }
 
+        private Vector3 CalculateRopeEndPosition(Vector3 origin, Vector3 initHand, Vector3 currentHand)
+        {
+            Vector3 res = new Vector3();
+            res.x = origin.x + (currentHand.x - initHand.x)*2f;
+            res.y = origin.y + (currentHand.y - initHand.y)*2f;
+            res.z = origin.z + (currentHand.z - initHand.z)*2f;
+
+            return res;
+        }
+        
         public void OnSelect()
         {
             if (!IsDone)
             {
                 ShowLine = true;
+                initPositionController = HandController.transform.forward;
                 CablesController.SetCablingOrigin(this);
             }
         }
