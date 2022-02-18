@@ -8,6 +8,7 @@ public class AsteroidInteraction : MonoBehaviour
 
     public void Destroy()
     {
+        GetComponent<ParticleEffectManager>().Activate();
         GameManager.AsteroidDestroyed();
         gameObject.SetActive(false);
     }

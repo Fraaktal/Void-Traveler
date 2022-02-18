@@ -175,7 +175,7 @@ MonoBehaviour:
   ShootSound: {fileID: 0}
   MaxSpawnDelay: 60
   MinSpawnDelay: 25
-  NbAsteroidToDestroy: 15
+  NbAsteroidToDestroy: 100
   isGameActive: 0
 --- !u!82 &1581904
 AudioSource:
@@ -552,6 +552,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_CustomReticle: {fileID: 0}
+--- !u!114 &652112203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652112199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc72489ac804a941a59fcafe25e7703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleEmitterPrefab: {fileID: 100004, guid: 82019e923dca94848916b96b8f98a352, type: 3}
 --- !u!1 &769187433
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,6 +907,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_CustomReticle: {fileID: 0}
+--- !u!114 &940212436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940212432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc72489ac804a941a59fcafe25e7703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleEmitterPrefab: {fileID: 100004, guid: 82019e923dca94848916b96b8f98a352, type: 3}
 --- !u!1001 &1082109193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1044,6 +1070,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 1.2, z: 1.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1082109198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082109194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc72489ac804a941a59fcafe25e7703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleEmitterPrefab: {fileID: 100004, guid: 82019e923dca94848916b96b8f98a352, type: 3}
 --- !u!1 &1121808438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,7 +1951,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f095ed7fb8ed84caa814c14d6ea51fc0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.399
   m_Pitch: 1
   Loop: 0
   Mute: 0
