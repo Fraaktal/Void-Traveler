@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using UnityEngine;
 using Random = System.Random;
@@ -8,10 +9,12 @@ namespace Cables
 {
     public class CablesController : MonoBehaviour
     {
+        [HideInInspector]
+        public CableOrigin CablingOrigin;
         public List<CableOrigin> Origins;
         public List<CableDestination> Destinations;
         public AudioSource VictorySound;
-        public CableOrigin CablingOrigin;
+        public GameObject icon;
 
         private List<Tuple<CableOrigin, CableDestination>> Associations { get; set; }
         private int ValidatedCablesCount { get; set; }
@@ -56,6 +59,7 @@ namespace Cables
             if (ValidatedCablesCount == Origins.Count)
             {
                 VictorySound.Play();
+                icon.SetActive(false);
             }
         }
 
