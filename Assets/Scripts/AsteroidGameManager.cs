@@ -5,29 +5,40 @@ using UnityEngine;
 public class AsteroidGameManager : MonoBehaviour
 {
     public GameObject AsteroidSpawner;
-    public GameObject Asteroid; //TODO Prevoir de faire varier les modèles d'Asteroid
+    public GameObject Asteroid1;
+    public GameObject Asteroid2;
+    public GameObject Asteroid3;
+    public AudioSource DestroySound;
+    public AudioSource ShootSound;
 
     public int MaxSpawnDelay;
     public int MinSpawnDelay;
     public int NbAsteroidToDestroy;
 
     private int frameCounter;
-    private int asteroidCounter; //TODO Mettre fin au mini jeu après X asteroids détruits
+    private int asteroidCounter;
     private int spawnDelay;
 
-    private bool gameIsActive = false;
+    private List<GameObject> _listOfAsteroids;
+
+    private bool _isGameActive = false;
+
+    #region Méthodes publiques
 
     public void Launch()
     {
+        _listOfAsteroids = new List<GameObject>() { Asteroid1, Asteroid2, Asteroid3};
         asteroidCounter = 0;
         ReinitCounter();
-        gameIsActive = true;
+        _isGameActive = true;
+        gameObject.SetActive(true);
     }
 
     public void AsteroidDestroyed()
     {
+        DestroySound.Play();
         asteroidCounter++;
-        if(asteroidCounter >= NbAsteroidToDestroy)
+        if (asteroidCounter >= NbAsteroidToDestroy)
         {
             Stop();
         }
@@ -36,7 +47,7 @@ public class AsteroidGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameIsActive)
+        if (_isGameActive)
         {
             if (frameCounter > spawnDelay)
             {
@@ -52,8 +63,15 @@ public class AsteroidGameManager : MonoBehaviour
 
     public void Stop()
     {
-        this.gameObject.SetActive(false);
+        foreach(var asteroid in _listOfAsteroids)
+            asteroid.SetActive(false);
+        _isGameActive = false;
+        gameObject.SetActive(false);
     }
+
+    #endregion
+
+    #region Méthodes privées
 
     private void ReinitCounter()
     {
@@ -63,15 +81,27 @@ public class AsteroidGameManager : MonoBehaviour
 
     private void ThrowAsteroid()
     {
-        var obj = Instantiate(Asteroid);
-        // TODO paramétrer l'angle min et max ??
-        float randX = Random.Range(-0.15f, 0.15f);
-        float randY = Random.Range(-0.15f, 0.15f);
-        Vector3 vec = new Vector3(randX ,
-            randY ,
-            AsteroidSpawner.transform.forward.z);
+        var _asteroid = _listOfAsteroids[Random.Range(0, _listOfAsteroids.Count)];
+        var obj = Instantiate(_asteroid);
+        obj.SetActive(true);
+        _listOfAsteroids.Add(obj);
 
-        obj.transform.position = AsteroidSpawner.transform.position;
-        obj.GetComponent<Rigidbody>().AddForce(5500 * vec, ForceMode.Impulse);
+        // Génération de l'angle (semi) aléatoire
+        float randomAngleX = Random.Range(-0.10f, 0.10f);
+        float randomAngleY = Random.Range(-0.10f, 0.10f);
+        Vector3 randomAngle = new Vector3(randomAngleX, randomAngleY, AsteroidSpawner.transform.forward.z);
+
+        // Génération de la position (semi) aléatoire
+        float randomOffsetPosX = Random.Range(-5, 5);
+        float randomOffsetPosY = Random.Range(-5, 5);
+        float randomOffsetPosZ = Random.Range(-15, 15);
+        Vector3 randomPos = new Vector3(AsteroidSpawner.transform.position.x + randomOffsetPosX,
+            AsteroidSpawner.transform.position.y + randomOffsetPosY, 
+            AsteroidSpawner.transform.position.z + AsteroidSpawner.transform.forward.x + randomOffsetPosZ);
+
+        obj.transform.position = randomPos;
+        obj.GetComponent<Rigidbody>().AddForce(5500 * randomAngle, ForceMode.Impulse);
     }
+
+    #endregion
 }
