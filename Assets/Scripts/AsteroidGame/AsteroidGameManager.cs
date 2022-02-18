@@ -21,7 +21,7 @@ public class AsteroidGameManager : MonoBehaviour
 
     private List<GameObject> _listOfAsteroids;
 
-    private bool _isGameActive = false;
+    public bool isGameActive = false;
 
     #region Méthodes publiques
 
@@ -30,7 +30,7 @@ public class AsteroidGameManager : MonoBehaviour
         _listOfAsteroids = new List<GameObject>() { Asteroid1, Asteroid2, Asteroid3};
         asteroidCounter = 0;
         ReinitCounter();
-        _isGameActive = true;
+        isGameActive = true;
         gameObject.SetActive(true);
     }
 
@@ -47,7 +47,7 @@ public class AsteroidGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_isGameActive)
+        if (isGameActive)
         {
             if (frameCounter > spawnDelay)
             {
@@ -65,7 +65,7 @@ public class AsteroidGameManager : MonoBehaviour
     {
         foreach(var asteroid in _listOfAsteroids)
             asteroid.SetActive(false);
-        _isGameActive = false;
+        isGameActive = false;
         gameObject.SetActive(false);
     }
 
