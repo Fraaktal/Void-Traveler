@@ -6,7 +6,7 @@ using UnityEngine.XR;
 [System.Serializable]
 public class TriggerButtonEvent : UnityEvent<bool> { }
 
-public class TriggerButtonWatcher : MonoBehaviour
+public class TriggerButtonWatcherAsteroidGame : MonoBehaviour
 {
     public TriggerButtonEvent triggerButtonPress;
 
