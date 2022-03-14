@@ -130,12 +130,16 @@ namespace Story
 
         private void PlayEndGame()
         {
-            if()
-            //on déplace au bon endroit
-            var newPosition = new Vector3(ObjectDestination.transform.position.x, ObjectDestination.transform.position.y + 1.5f, ObjectDestination.transform.position.z);
-            PlayerCam.MoveCameraToWorldLocation(newPosition);
-            PlayerCam.MatchRigUp(new Vector3(0,0,0));
-            Video.Play();
+            if (DoPlayGame)
+            {
+                //on déplace au bon endroit
+                var newPosition = new Vector3(ObjectDestination.transform.position.x, ObjectDestination.transform.position.y + 1.5f, ObjectDestination.transform.position.z);
+                PlayerCam.MoveCameraToWorldLocation(newPosition);
+                PlayerCam.MatchRigUp(new Vector3(0, 0, 0));
+                Video.Play();
+                DoPlayGame = false;
+            }
+            
         }
 
         private void PlayTheEnd()
