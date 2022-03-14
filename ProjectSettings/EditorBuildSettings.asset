@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AsteroidShooterScene.unity
     guid: 62b2db3d3e2dab347a5f40e762d3ae94
+  - enabled: 1
+    path: Assets/Scenes/NavigationMiniGameScene.unity
+    guid: 997cd3c98a1bb4444a5d2ed906a27f5e
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 3b63915b02d98514991bd55611caf734, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: fcafd0b4747c30b4dac804e6f987c220, type: 2}
