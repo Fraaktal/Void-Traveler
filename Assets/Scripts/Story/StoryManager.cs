@@ -16,11 +16,13 @@ namespace Story
 
         private int VoiceLineIndex;
         private bool DoPlaySound;
+        private bool DoPlayGame;
 
         // Start is called before the first frame update
         void Start()
         {
             DoPlaySound = true;
+            DoPlayGame = true;
             VoiceLineIndex = 0;
         }
 
@@ -28,7 +30,7 @@ namespace Story
         void Update()
         {
             bool hasEnded = PlayAudio(VoiceLinesSource[VoiceLineIndex], DoPlaySound);
-            DoPlaySound = false;
+            
             if (hasEnded)
             {
                 switch (VoiceLineIndex)
@@ -77,11 +79,16 @@ namespace Story
         {
             VoiceLineIndex++;
             DoPlaySound = true;
+            DoPlayGame = true;
         }
 
         private void PlayCables()
         {
-            CablesController.StartGame();
+            if (DoPlayGame)
+            {
+                CablesController.StartGame();
+                DoPlayGame = false;
+            }
             CablesController.HasWon += IncrementAndPlay;
         }
 
@@ -135,6 +142,7 @@ namespace Story
             if (play)
             {
                 audioSource.Play();
+                DoPlaySound = false;
             }
 
             return !audioSource.isPlaying;
