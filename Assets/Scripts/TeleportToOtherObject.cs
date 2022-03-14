@@ -9,12 +9,17 @@ public class TeleportToOtherObject : MonoBehaviour
 
     public void Teleport()
     {
+        Vector3 newPosition;
+
         if (ObjectDestination != null)
         {
-            var newPosition = new Vector3(ObjectDestination.transform.position.x, ObjectDestination.transform.position.y + hauteurOffset, ObjectDestination.transform.position.z);
-            PlayerCam.MoveCameraToWorldLocation(newPosition);
-            PlayerCam.MatchRigUp(new Vector3(0,0,0)); //Fixe l'angle up de la camera
+            newPosition = new Vector3(ObjectDestination.transform.position.x, ObjectDestination.transform.position.y + hauteurOffset, ObjectDestination.transform.position.z);
+        } else {
+            newPosition = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + hauteurOffset, gameObject.transform.position.z);
         }
+        
+        PlayerCam.MoveCameraToWorldLocation(newPosition);
+        PlayerCam.MatchRigUp(new Vector3(0, 0, 0)); //Fixe l'angle up de la camera
 
     }
 }
