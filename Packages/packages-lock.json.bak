@@ -140,7 +140,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.picoxr": {
-      "version": "file:../Pico SDK",
+		"version": "file:../Pico SDK",
       "depth": 0,
       "source": "local",
       "dependencies": {
