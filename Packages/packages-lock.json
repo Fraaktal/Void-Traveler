@@ -140,7 +140,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.picoxr": {
-      "version": "file:C:/Users/Loreleï AUGERAUD/Desktop/Lorelei/Cours/Realité_virtuelle/TP3_Pico&VR_SetUp/Pico/Pico_SDK",
+      "version": "file:../Pico SDK",
       "depth": 0,
       "source": "local",
       "dependencies": {
