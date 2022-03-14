@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AsteroidGameManager : MonoBehaviour
 {
@@ -10,12 +11,14 @@ public class AsteroidGameManager : MonoBehaviour
     public GameObject Asteroid3;
     public AudioSource DestroySound;
     public AudioSource ShootSound;
-    public Action OnFinished;
 
     public int MaxSpawnDelay;
     public int MinSpawnDelay;
     public int NbAsteroidToDestroy;
-
+    
+    public Action HasWon { get; set; }
+    public bool CanStartGame { get; set; }
+    
     private int frameCounter;
     private int asteroidCounter;
     private int spawnDelay;
@@ -24,15 +27,23 @@ public class AsteroidGameManager : MonoBehaviour
 
     public bool isGameActive = false;
 
-    #region Méthodes publiques
+    #region Methodes publiques  
+
+    public void Start()
+    {
+        CanStartGame = false;
+    }
 
     public void Launch()
     {
-        _listOfAsteroids = new List<GameObject>() { Asteroid1, Asteroid2, Asteroid3};
-        asteroidCounter = 0;
-        ReinitCounter();
-        isGameActive = true;
-        gameObject.SetActive(true);
+        if (CanStartGame)
+        {
+            _listOfAsteroids = new List<GameObject>() { Asteroid1, Asteroid2, Asteroid3};
+            asteroidCounter = 0;
+            ReinitCounter();
+            isGameActive = true;
+            gameObject.SetActive(true);
+        }
     }
 
     public void AsteroidDestroyed()
@@ -42,6 +53,7 @@ public class AsteroidGameManager : MonoBehaviour
         if (asteroidCounter >= NbAsteroidToDestroy)
         {
             Stop();
+            HasWon?.Invoke();
         }
     }
 
@@ -68,12 +80,11 @@ public class AsteroidGameManager : MonoBehaviour
             asteroid.SetActive(false);
         isGameActive = false;
         gameObject.SetActive(false);
-        OnFinished?.Invoke();
     }
 
     #endregion
 
-    #region Méthodes privées
+    #region Methodes privees
 
     private void ReinitCounter()
     {
@@ -88,12 +99,12 @@ public class AsteroidGameManager : MonoBehaviour
         obj.SetActive(true);
         _listOfAsteroids.Add(obj);
 
-        // Génération de l'angle (semi) aléatoire
+        // Generation de l'angle (semi) aleatoire
         float randomAngleX = UnityEngine.Random.Range(-0.10f, 0.10f);
         float randomAngleY = UnityEngine.Random.Range(-0.10f, 0.10f);
         Vector3 randomAngle = new Vector3(randomAngleX, randomAngleY, gameObject.transform.forward.z);
 
-        // Génération de la position (semi) aléatoire
+        // Generation de la position (semi) aleatoire
         float randomOffsetPosX = UnityEngine.Random.Range(-5, 5);
         float randomOffsetPosY = UnityEngine.Random.Range(-5, 5);
         float randomOffsetPosZ = UnityEngine.Random.Range(-15, 15);

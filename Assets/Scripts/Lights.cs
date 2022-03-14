@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Winning : MonoBehaviour
+public class Lights : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioSource sound;
@@ -13,7 +14,12 @@ public class Winning : MonoBehaviour
     
     void Start()
     {
-        
+        this.enabled = false;
+    }
+
+    public void StartGame()
+    {
+        this.enabled = true;
     }
 
     // Update is called once per frame
@@ -21,6 +27,8 @@ public class Winning : MonoBehaviour
     {
         
     }
+
+    public Action HasWon { get; set; }
 
     public void Switch()
     {
@@ -51,6 +59,7 @@ public class Winning : MonoBehaviour
             
             turnOff.SetInterruptorDisabled();
             sound.Play();
+            HasWon?.Invoke();
         }
     }
 }

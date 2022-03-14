@@ -22,6 +22,7 @@ public class OffsetGrab : XRGrabInteractable
     private void MatchAttachementPoints(XRBaseInteractor interactor)
     {
         bool hasAttach = attachTransform != null;
+
         interactor.attachTransform.position = hasAttach ? attachTransform.position : transform.position;
         interactor.attachTransform.rotation = hasAttach ? attachTransform.rotation : transform.rotation;
     }

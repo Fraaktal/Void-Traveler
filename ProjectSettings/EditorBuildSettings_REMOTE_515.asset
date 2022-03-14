@@ -11,15 +11,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/AsteroidShooterScene.unity
     guid: 62b2db3d3e2dab347a5f40e762d3ae94
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Ship.unity
     guid: e934f885925cf7c4da0187039a07d09b
-  - enabled: 1
-    path: Assets/Scenes/FusionReactorValve.unity
-    guid: a12ef2205f7e4894f9599a85ef733589
-    enabled: 0
-    path: Assets/Scenes/NavigationMiniGameScene.unity
-    guid: 997cd3c98a1bb4444a5d2ed906a27f5e
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 3b63915b02d98514991bd55611caf734, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: fcafd0b4747c30b4dac804e6f987c220, type: 2}
