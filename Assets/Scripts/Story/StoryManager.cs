@@ -7,8 +7,7 @@ namespace Story
     public class StoryManager : MonoBehaviour
     {
         #region voice lines
-        public List<AudioClip> VoiceLines;
-        private List<AudioSource> VoiceLinesSource;
+        public List<AudioSource> VoiceLinesSource;
         #endregion
 
         #region games
@@ -23,12 +22,6 @@ namespace Story
         {
             DoPlaySound = true;
             VoiceLineIndex = 0;
-            foreach (var line in VoiceLines)
-            {
-                AudioSource source = new AudioSource();
-                source.clip = line;
-                VoiceLinesSource.Add(source);
-            } 
         }
 
         // Update is called once per frame
