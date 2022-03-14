@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Cables;
 using UnityEngine;
+using UnityEngine.Video;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Story
 {
@@ -12,6 +14,11 @@ namespace Story
 
         #region games
         public CablesController CablesController;
+        public Lights Lights;
+        public AsteroidGameManager AsteroidGameManager;
+        public XRRig PlayerCam;
+        public GameObject ObjectDestination;
+        public VideoPlayer Video;
         #endregion
 
         private int VoiceLineIndex;
@@ -41,9 +48,6 @@ namespace Story
                     case 4:
                         PlayMap1();
                         break;
-                    case 8:
-                        PlayLoadAndPay();
-                        break;
                     case 9:
                         PlayLights();
                         break;
@@ -55,9 +59,6 @@ namespace Story
                         break;
                     case 13:
                         PlayAsteroids();
-                        break;
-                    case 15:
-                        PlayLanding();
                         break;
                     case 16:
                         PlayValves();
@@ -96,15 +97,15 @@ namespace Story
         {
 
         }
-
-        private void PlayLoadAndPay()
-        {
-
-        }
-
+        
         private void PlayLights()
         {
-
+            if (DoPlayGame)
+            {
+                Lights.StartGame();
+                DoPlayGame = false;
+            }
+            Lights.HasWon += IncrementAndPlay;
         }
 
         private void PlayMap2()
@@ -114,12 +115,12 @@ namespace Story
 
         private void PlayAsteroids()
         {
-
-        }
-
-        private void PlayLanding()
-        {
-
+            if (DoPlayGame)
+            {
+                AsteroidGameManager.CanStartGame = true;
+                DoPlayGame = false;
+            }
+            AsteroidGameManager.HasWon += IncrementAndPlay;
         }
 
         private void PlayValves()
@@ -129,7 +130,12 @@ namespace Story
 
         private void PlayEndGame()
         {
-
+            if()
+            //on déplace au bon endroit
+            var newPosition = new Vector3(ObjectDestination.transform.position.x, ObjectDestination.transform.position.y + 1.5f, ObjectDestination.transform.position.z);
+            PlayerCam.MoveCameraToWorldLocation(newPosition);
+            PlayerCam.MatchRigUp(new Vector3(0,0,0));
+            Video.Play();
         }
 
         private void PlayTheEnd()
