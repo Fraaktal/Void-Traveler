@@ -6,10 +6,6 @@ public class OffsetGrab : XRGrabInteractable
     private Vector3 interactorPosition = Vector3.zero;
     private Quaternion interactorRotation = Quaternion.identity;
 
-    public bool blockX;
-    public bool blockY;
-    public bool blockZ;
-
     protected override void OnSelectEnter(XRBaseInteractor interactor)
     {
         base.OnSelectEnter(interactor);
