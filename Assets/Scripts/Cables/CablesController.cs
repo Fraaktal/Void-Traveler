@@ -18,9 +18,14 @@ namespace Cables
 
         private List<Tuple<CableOrigin, CableDestination>> Associations { get; set; }
         private int ValidatedCablesCount { get; set; }
+        public Action HasWon;
 
         // Start is called before the first frame update
         void Start()
+        {
+        }
+
+        public void StartGame()
         {
             Associations = GenerateAssociations();
             ValidatedCablesCount = 0;
@@ -60,6 +65,7 @@ namespace Cables
             {
                 VictorySound.Play();
                 icon.SetActive(false);
+                HasWon?.Invoke();
             }
         }
 

@@ -1076,6 +1076,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1166,6 +1167,51 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45036e0a8b4ba3a4f923a38d5ef65ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoiceLines:
+  - {fileID: 8300000, guid: 3a6cf69f33b51e04eac1eb7533394436, type: 3}
+  - {fileID: 8300000, guid: 94ced8a041e2c244ea7921e9f7299025, type: 3}
+  - {fileID: 8300000, guid: 81d3c65fa7154e9448d173ededde0fe3, type: 3}
+  - {fileID: 8300000, guid: 60ab3e54f85a480439619212d6d99071, type: 3}
+  - {fileID: 8300000, guid: c30b1a71033f7d446a981ad6ac1d461a, type: 3}
+  - {fileID: 8300000, guid: ddadef37686ddfa47b46edd368b99a58, type: 3}
+  - {fileID: 8300000, guid: 4ab31a4bf42ed3045929cd2cb250515d, type: 3}
+  - {fileID: 8300000, guid: 82dce4234ca8a904c9211d105621cb14, type: 3}
+  - {fileID: 8300000, guid: de7d3f89c2d18564bb642db394c2f718, type: 3}
+  - {fileID: 8300000, guid: 2432428722ef272438cf485d7ef7d650, type: 3}
+  - {fileID: 8300000, guid: a174449b914702746a2bf222a73da32a, type: 3}
+  - {fileID: 8300000, guid: f362425b7b52f5d4e9df1e0b2d7778c1, type: 3}
+  - {fileID: 8300000, guid: dac6b5f06fe9d704fb3bd14afbf1b3e8, type: 3}
+  - {fileID: 8300000, guid: e451514d35eb2754ba02e8c00841a9f6, type: 3}
+  - {fileID: 8300000, guid: 7e409db41b4046d429b74d7c1f3e1f99, type: 3}
+  - {fileID: 8300000, guid: b3400dcdbf3ebe24e932380972f41502, type: 3}
+  - {fileID: 8300000, guid: 754f14d7ee8492244b0cc3409f823409, type: 3}
+  - {fileID: 8300000, guid: e693f76c83454444ba7e98d46af2acd7, type: 3}
+  - {fileID: 8300000, guid: ca9258f88913a8641a9a9a7eaf3650cf, type: 3}
+  - {fileID: 8300000, guid: fba5e76c50ff1c541af230db05372669, type: 3}
+  CablesController: {fileID: 1207409701}
+--- !u!114 &1207409701 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8202603762101148342, guid: 37a59438b8e162c45ace139177ab6838, type: 3}
+  m_PrefabInstance: {fileID: 8202603763431117723}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0ae0374b1a22b4ba8bc275dacda986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1508011225
 GameObject:
   m_ObjectHideFlags: 0

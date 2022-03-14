@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AsteroidGameManager : MonoBehaviour
 {
-    public GameObject AsteroidSpawner;
     public GameObject Asteroid1;
     public GameObject Asteroid2;
     public GameObject Asteroid3;
@@ -89,15 +88,15 @@ public class AsteroidGameManager : MonoBehaviour
         // Génération de l'angle (semi) aléatoire
         float randomAngleX = Random.Range(-0.10f, 0.10f);
         float randomAngleY = Random.Range(-0.10f, 0.10f);
-        Vector3 randomAngle = new Vector3(randomAngleX, randomAngleY, AsteroidSpawner.transform.forward.z);
+        Vector3 randomAngle = new Vector3(randomAngleX, randomAngleY, gameObject.transform.forward.z);
 
         // Génération de la position (semi) aléatoire
         float randomOffsetPosX = Random.Range(-5, 5);
         float randomOffsetPosY = Random.Range(-5, 5);
         float randomOffsetPosZ = Random.Range(-15, 15);
-        Vector3 randomPos = new Vector3(AsteroidSpawner.transform.position.x + randomOffsetPosX,
-            AsteroidSpawner.transform.position.y + randomOffsetPosY, 
-            AsteroidSpawner.transform.position.z + AsteroidSpawner.transform.forward.x + randomOffsetPosZ);
+        Vector3 randomPos = new Vector3(gameObject.transform.position.x + randomOffsetPosX,
+            gameObject.transform.position.y + randomOffsetPosY,
+            gameObject.transform.position.z + gameObject.transform.forward.x + randomOffsetPosZ);
 
         obj.transform.position = randomPos;
         obj.GetComponent<Rigidbody>().AddForce(5500 * randomAngle, ForceMode.Impulse);
