@@ -876,11 +876,9 @@ GameObject:
   - component: {fileID: 1414847673}
   - component: {fileID: 1414847672}
   - component: {fileID: 1414847671}
-  - component: {fileID: 1414847675}
   - component: {fileID: 1414847677}
-  - component: {fileID: 1414847676}
-  - component: {fileID: 1414847678}
   - component: {fileID: 1414847679}
+  - component: {fileID: 1414847675}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1007,16 +1005,16 @@ MonoBehaviour:
       m_Calls: []
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 0}
-  m_AttachEaseInTime: 0
-  m_MovementType: 2
-  m_TrackPosition: 0
+  m_AttachEaseInTime: 0.15
+  m_MovementType: 0
+  m_TrackPosition: 1
   m_SmoothPosition: 0
-  m_SmoothPositionAmount: 0
-  m_TightenPosition: 0
+  m_SmoothPositionAmount: 5
+  m_TightenPosition: 0.5
   m_TrackRotation: 1
   m_SmoothRotation: 0
-  m_SmoothRotationAmount: 0
-  m_TightenRotation: 0
+  m_SmoothRotationAmount: 5
+  m_TightenRotation: 0.5
   m_ThrowOnDetach: 0
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
@@ -1038,81 +1036,9 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
---- !u!114 &1414847676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414847670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 753736155}
-  m_Colliders:
-  - {fileID: 1414847671}
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_OnFirstHoverEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnLastHoverExit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeactivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_CustomReticle: {fileID: 0}
-  m_AttachTransform: {fileID: 0}
-  m_AttachEaseInTime: 0.15
-  m_MovementType: 2
-  m_TrackPosition: 1
-  m_SmoothPosition: 0
-  m_SmoothPositionAmount: 5
-  m_TightenPosition: 0.5
-  m_TrackRotation: 1
-  m_SmoothRotation: 0
-  m_SmoothRotationAmount: 5
-  m_TightenRotation: 0.5
-  m_ThrowOnDetach: 1
-  m_ThrowSmoothingDuration: 0.25
-  m_ThrowSmoothingCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
-  m_ThrowAngularVelocityScale: 0.25
-  m_GravityOnDetach: 0
-  m_RetainTransformParent: 1
+  blockX: 0
+  blockY: 0
+  blockZ: 0
 --- !u!54 &1414847677
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1124,23 +1050,11 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 78
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1414847678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414847670}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c26ac53ed11e42b4c97c48346886b1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!59 &1414847679
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1148,16 +1062,16 @@ HingeJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414847670}
-  m_ConnectedBody: {fileID: 1477121672}
+  m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -4.0684443, y: 0.7938998, z: -3.9815984}
-  m_UseSpring: 0
+  m_ConnectedAnchor: {x: 0, y: 1.7, z: 7.7}
+  m_UseSpring: 1
   m_Spring:
     spring: 0
-    damper: 0
+    damper: 10
     targetPosition: 0
   m_UseMotor: 0
   m_Motor:
@@ -1209,7 +1123,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
