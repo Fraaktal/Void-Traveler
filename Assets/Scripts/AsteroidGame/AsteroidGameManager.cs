@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AsteroidGameManager : MonoBehaviour
 {
@@ -22,15 +24,26 @@ public class AsteroidGameManager : MonoBehaviour
 
     public bool isGameActive = false;
 
-    #region Méthodes publiques
+    #region Mï¿½thodes publiques
+
+    public bool CanStartGame { get; set; }
+    public Action HasWon { get; set; }
+
+    public void Start()
+    {
+        CanStartGame = false;
+    }
 
     public void Launch()
     {
-        _listOfAsteroids = new List<GameObject>() { Asteroid1, Asteroid2, Asteroid3};
-        asteroidCounter = 0;
-        ReinitCounter();
-        isGameActive = true;
-        gameObject.SetActive(true);
+        if (CanStartGame)
+        {
+            _listOfAsteroids = new List<GameObject>() { Asteroid1, Asteroid2, Asteroid3};
+            asteroidCounter = 0;
+            ReinitCounter();
+            isGameActive = true;
+            gameObject.SetActive(true);
+        }
     }
 
     public void AsteroidDestroyed()
@@ -40,6 +53,7 @@ public class AsteroidGameManager : MonoBehaviour
         if (asteroidCounter >= NbAsteroidToDestroy)
         {
             Stop();
+            HasWon?.Invoke();
         }
     }
 
@@ -70,7 +84,7 @@ public class AsteroidGameManager : MonoBehaviour
 
     #endregion
 
-    #region Méthodes privées
+    #region Mï¿½thodes privï¿½es
 
     private void ReinitCounter()
     {
@@ -85,12 +99,12 @@ public class AsteroidGameManager : MonoBehaviour
         obj.SetActive(true);
         _listOfAsteroids.Add(obj);
 
-        // Génération de l'angle (semi) aléatoire
+        // Gï¿½nï¿½ration de l'angle (semi) alï¿½atoire
         float randomAngleX = Random.Range(-0.10f, 0.10f);
         float randomAngleY = Random.Range(-0.10f, 0.10f);
         Vector3 randomAngle = new Vector3(randomAngleX, randomAngleY, gameObject.transform.forward.z);
 
-        // Génération de la position (semi) aléatoire
+        // Gï¿½nï¿½ration de la position (semi) alï¿½atoire
         float randomOffsetPosX = Random.Range(-5, 5);
         float randomOffsetPosY = Random.Range(-5, 5);
         float randomOffsetPosZ = Random.Range(-15, 15);
