@@ -1290,7 +1290,6 @@ GameObject:
   - component: {fileID: 72751440}
   - component: {fileID: 72751439}
   - component: {fileID: 72751438}
-  - component: {fileID: 72751441}
   m_Layer: 0
   m_Name: Cylinder_MainReturn
   m_TagString: Untagged
@@ -1375,21 +1374,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72751436}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &72751441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72751436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53d996835fcf6f54ab9dbe977c99e27f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerCam: {fileID: 0}
-  ObjectDestination: {fileID: 2024296285}
-  hauteurOffset: 1.5
 --- !u!1001 &83717358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5187,6 +5171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 868068138}
+<<<<<<< HEAD
   - {fileID: 1124569892}
   - {fileID: 733692959}
   - {fileID: 2024296286}
@@ -5195,6 +5180,8 @@ Transform:
   - {fileID: 334747815}
   - {fileID: 1256372022}
   - {fileID: 1275014282}
+=======
+>>>>>>> cfb5c6fd55c9b17fff9b20f33ce8225911b7e92c
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6269,7 +6256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCam: {fileID: 0}
   ObjectDestination: {fileID: 2044476231}
-  hauteurOffset: 1.5
+  hauteurOffset: 1
 --- !u!136 &334747817
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14662,7 +14649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCam: {fileID: 0}
   ObjectDestination: {fileID: 1124569887}
-  hauteurOffset: 1.5
+  hauteurOffset: 1
 --- !u!136 &733692961
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20456,6 +20443,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 451040, guid: ea798cfb4939d4441b95d1bd39d0767f, type: 3}
   m_PrefabInstance: {fileID: 1054998646}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1054998648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 125588, guid: ea798cfb4939d4441b95d1bd39d0767f, type: 3}
+  m_PrefabInstance: {fileID: 1054998646}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1054998649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054998648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d996835fcf6f54ab9dbe977c99e27f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCam: {fileID: 0}
+  ObjectDestination: {fileID: 2024296285}
+  hauteurOffset: 1
 --- !u!1001 &1058368341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21518,7 +21525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCam: {fileID: 0}
   ObjectDestination: {fileID: 733692958}
-  hauteurOffset: 1.5
+  hauteurOffset: 1
 --- !u!136 &1124569889
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24475,7 +24482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCam: {fileID: 0}
   ObjectDestination: {fileID: 1275014281}
-  hauteurOffset: 1.5
+  hauteurOffset: 1
 --- !u!136 &1256372019
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24915,7 +24922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCam: {fileID: 0}
   ObjectDestination: {fileID: 1256372017}
-  hauteurOffset: 1.5
+  hauteurOffset: 1
 --- !u!136 &1275014284
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -39241,7 +39248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCam: {fileID: 0}
   ObjectDestination: {fileID: 72751436}
-  hauteurOffset: 1.5
+  hauteurOffset: 1
 --- !u!136 &2024296288
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -39917,7 +39924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCam: {fileID: 0}
   ObjectDestination: {fileID: 334747814}
-  hauteurOffset: 1.5
+  hauteurOffset: 1
 --- !u!136 &2044476233
 CapsuleCollider:
   m_ObjectHideFlags: 0

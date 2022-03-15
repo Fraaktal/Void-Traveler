@@ -5,7 +5,7 @@ public class TeleportToOtherObject : MonoBehaviour
 {
     public XRRig PlayerCam;
     public GameObject ObjectDestination;
-    public float hauteurOffset = 1;
+    public float hauteurOffset = 1.5f;
 
     public void Teleport()
     {
