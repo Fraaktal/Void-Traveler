@@ -30,4 +30,8 @@ public class EffectOnRotation : MonoBehaviour
     }
 
     public Action HasWon { get; set; }
+
+    public void StartGame()
+    {
+    }
 }

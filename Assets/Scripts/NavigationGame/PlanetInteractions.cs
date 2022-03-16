@@ -9,6 +9,7 @@ public class PlanetInteractions : MonoBehaviour
 
     public AudioSource EngineSound;
     public Action OnFinished;
+    public GameObject parent;
 
     public GameObject Spaceship;
 
@@ -35,5 +36,15 @@ public class PlanetInteractions : MonoBehaviour
     {
         if(isRotating)
             this.transform.Rotate(new Vector3(9f * Time.deltaTime, 2f * Time.deltaTime));
+    }
+
+    public void Show()
+    {
+        parent.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        parent.SetActive(false);
     }
 }

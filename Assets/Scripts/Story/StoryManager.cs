@@ -16,6 +16,10 @@ namespace Story
         public CablesController CablesController;
         public Lights Lights;
         public AsteroidGameManager AsteroidGameManager;
+        public PlanetInteractions Garage;
+        public PlanetInteractions Terre;
+        public EffectOnRotation Valve;
+
         public XRRig PlayerCam;
         public GameObject ObjectDestination;
         public VideoPlayer Video;
@@ -95,7 +99,12 @@ namespace Story
 
         private void PlayMap1()
         {
-
+            Garage.Show();
+            Garage.OnFinished += () =>
+            {
+                Garage.Hide();
+                IncrementAndPlay();
+            };
         }
         
         private void PlayLights()
@@ -110,7 +119,12 @@ namespace Story
 
         private void PlayMap2()
         {
-
+            Terre.Show();
+            Terre.OnFinished += () =>
+            {
+                Terre.Hide();
+                IncrementAndPlay();
+            };
         }
 
         private void PlayAsteroids()
@@ -125,7 +139,8 @@ namespace Story
 
         private void PlayValves()
         {
-
+            Valve.StartGame();
+            Valve.HasWon += IncrementAndPlay;
         }
 
         private void PlayEndGame()
@@ -136,6 +151,7 @@ namespace Story
                 var newPosition = new Vector3(ObjectDestination.transform.position.x, ObjectDestination.transform.position.y + 1.5f, ObjectDestination.transform.position.z);
                 PlayerCam.MoveCameraToWorldLocation(newPosition);
                 PlayerCam.MatchRigUp(new Vector3(0, 0, 0));
+                Video.gameObject.SetActive(true);
                 Video.Play();
                 DoPlayGame = false;
             }
@@ -144,7 +160,7 @@ namespace Story
 
         private void PlayTheEnd()
         {
-
+            //?
         }
 
         private bool PlayAudio(AudioSource audioSource, bool play)
