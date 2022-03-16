@@ -20,9 +20,9 @@ namespace Story
         public PlanetInteractions Terre;
         public EffectOnRotation Valve;
 
-        public XRRig PlayerCam;
-        public GameObject ObjectDestination;
-        public VideoPlayer Video;
+        public TeleportToOtherObject TP;
+        public GameObject EndDestination;
+        public GameObject ImageEnd;
         #endregion
 
         private int VoiceLineIndex;
@@ -40,10 +40,12 @@ namespace Story
         // Update is called once per frame
         void Update()
         {
+            //On joue l'audio correspondant à l'index actuel
             bool hasEnded = PlayAudio(VoiceLinesSource[VoiceLineIndex], DoPlaySound);
             
             if (hasEnded)
             {
+                //en fonction de l'index on lance un mini jeu si besoin
                 switch (VoiceLineIndex)
                 {
                     case 3:
@@ -70,9 +72,6 @@ namespace Story
                     case 17:
                         PlayEndGame();
                         break;
-                    case 19:
-                        PlayTheEnd();
-                        break;
                     default:
                         IncrementAndPlay();
                         break;
@@ -80,6 +79,7 @@ namespace Story
             }
         }
         
+        //incrémente l'index
         private void IncrementAndPlay()
         {
             VoiceLineIndex++;
@@ -148,19 +148,11 @@ namespace Story
             if (DoPlayGame)
             {
                 //on déplace au bon endroit
-                var newPosition = new Vector3(ObjectDestination.transform.position.x, ObjectDestination.transform.position.y + 1.5f, ObjectDestination.transform.position.z);
-                PlayerCam.MoveCameraToWorldLocation(newPosition);
-                PlayerCam.MatchRigUp(new Vector3(0, 0, 0));
-                Video.gameObject.SetActive(true);
-                Video.Play();
+                TP?.Teleport();
+                ImageEnd?.gameObject.SetActive(true);
                 DoPlayGame = false;
             }
             
-        }
-
-        private void PlayTheEnd()
-        {
-            //?
         }
 
         private bool PlayAudio(AudioSource audioSource, bool play)
