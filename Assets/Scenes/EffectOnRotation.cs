@@ -8,6 +8,9 @@ public class EffectOnRotation : MonoBehaviour
     public GameObject gameObject;
     public AudioSource audioSource;
     bool hasPlayed = false;
+    private bool CanPlay = false;
+    
+    public Action HasWon { get; set; }
 
     void Start()
     {
@@ -16,22 +19,23 @@ public class EffectOnRotation : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(transform.rotation.x);
-        if (transform.rotation.x <= -0.6)
+        if (CanPlay)
         {
-            gameObject.GetComponent<Renderer>().material.color = Color.green;
-            if (!hasPlayed)
+            if (transform.rotation.x <= -0.6)
             {
-                audioSource.Play();
-                hasPlayed = true;
+                gameObject.GetComponent<Renderer>().material.color = Color.green;
+                if (!hasPlayed)
+                {
+                    audioSource.Play();
+                    hasPlayed = true;
+                }
+                HasWon?.Invoke();
             }
-            HasWon?.Invoke();
         }
     }
 
-    public Action HasWon { get; set; }
-
     public void StartGame()
     {
+        CanPlay = true;
     }
 }

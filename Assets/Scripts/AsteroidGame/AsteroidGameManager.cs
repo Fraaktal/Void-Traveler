@@ -11,6 +11,8 @@ public class AsteroidGameManager : MonoBehaviour
     public GameObject Asteroid3;
     public AudioSource DestroySound;
     public AudioSource ShootSound;
+    public TeleportToOtherObject TP;
+    
 
     public int MaxSpawnDelay;
     public int MinSpawnDelay;
@@ -54,6 +56,7 @@ public class AsteroidGameManager : MonoBehaviour
         {
             Stop();
             HasWon?.Invoke();
+            TP.Teleport();
         }
     }
 
