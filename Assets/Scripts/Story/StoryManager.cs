@@ -21,7 +21,6 @@ namespace Story
         public EffectOnRotation Valve;
 
         public TeleportToOtherObject TP;
-        public GameObject EndDestination;
         public GameObject ImageEnd;
         #endregion
 
