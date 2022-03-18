@@ -10,7 +10,6 @@ public class AsteroidGameManager : MonoBehaviour
     public GameObject Asteroid2;
     public GameObject Asteroid3;
     public AudioSource DestroySound;
-    public AudioSource ShootSound;
     public TeleportToOtherObject TP;
     
 
@@ -36,6 +35,11 @@ public class AsteroidGameManager : MonoBehaviour
         CanStartGame = false;
     }
 
+    public void StartGame()
+    {
+        CanStartGame = true;
+    }
+
     public void Launch()
     {
         if (CanStartGame)
@@ -56,7 +60,7 @@ public class AsteroidGameManager : MonoBehaviour
         {
             Stop();
             HasWon?.Invoke();
-            TP.Teleport();
+            TP?.Teleport();
         }
     }
 
